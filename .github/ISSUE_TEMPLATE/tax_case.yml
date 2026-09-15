@@ -1,0 +1,80 @@
+name: Tax case
+description: Propose a source-backed tax regression or scope clarification for 2025.
+title: "[Tax case]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        BorderBucks is educational alpha software, not filing-ready or professional
+        advice. This is a public technical discussion, not a review of your return.
+        Use invented data or official public worked examples only. Never upload
+        private statements or reports. See docs/equity.md and docs/cross-border.md
+        for scope. Security issues must follow SECURITY.md instead.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Safe public case
+      options:
+        - label: This case contains only synthetic or official public data, without private statements or identifying information.
+          required: true
+        - label: I have distinguished official worked-example facts from invented or adapted assumptions.
+          required: true
+  - type: input
+    id: version
+    attributes:
+      label: Tax year and code revision
+      placeholder: "2025; commit SHA or version"
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Equity
+        - Foreign asset screening
+        - PFIC section 1296 mark-to-market
+        - Standalone wash sale
+        - Unsupported scope proposal
+    validations:
+      required: true
+  - type: textarea
+    id: assumptions
+    attributes:
+      label: Facts, assumptions, and scope
+      description: State eligibility assertions, dates, units, exclusions, and whether this is supported behavior or a scope proposal.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: citation
+    attributes:
+      label: Official authority
+      description: Provide official URLs, tax year or edition, exact section/page/example locators, and why they support the expected treatment.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: Minimal synthetic input or official worked example
+      description: Identify adapted dates and invented values explicitly. Include relevant source IDs.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected arithmetic and boundaries
+      description: Show formulas, expected values, and relevant equality/date/loss boundaries. Separate published expected values from your derived assertions.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Current result or missing behavior
+      description: Include synthetic-output fact IDs and rule IDs if available. State uncertainties or professional-review needs.
+      render: text
+    validations:
+      required: true

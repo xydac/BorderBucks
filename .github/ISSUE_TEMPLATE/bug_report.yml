@@ -1,0 +1,58 @@
+name: Bug report
+description: Report a software defect using synthetic data only.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is public. Do not attach private statements, returns, identifiers,
+        credentials, or reports containing real inputs. Use invented data, not a
+        lightly redacted statement. For security vulnerabilities, use SECURITY.md
+        and GitHub private vulnerability reporting if available, not this form.
+        Use the tax-case form for rule interpretations or expected tax arithmetic.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Safe public report
+      options:
+        - label: This report contains only synthetic or official public example data and no private financial information.
+          required: true
+        - label: This is not a security vulnerability report.
+          required: true
+  - type: input
+    id: revision
+    attributes:
+      label: Code revision or version
+      placeholder: Commit SHA or version, including local changes
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Python version, OS, and CLI or MCP client version if relevant
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include exact commands and a small synthetic JSON or canonical CSV input. Do not upload real reports.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include errors or fact IDs from the synthetic reproduction only.
+      render: text
+    validations:
+      required: true
