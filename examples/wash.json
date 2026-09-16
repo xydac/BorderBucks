@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "tax_year": 2025,
+  "kind": "wash",
+  "sources": [
+    {"id": "synthetic", "document": "Synthetic isolated wash-sale scenario", "locator": "All amounts, dates, and scope assertions; not an IRS example"}
+  ],
+  "scope": {
+    "reviewed_from": "2025-11-20",
+    "reviewed_through": "2026-01-19",
+    "complete_window": true,
+    "no_competing_loss_sales": true,
+    "no_related_party_or_derivative_transactions": true,
+    "not_a_dealer": true,
+    "source_ids": ["synthetic"]
+  },
+  "sale": {
+    "lot_id": "sold",
+    "security": "SYNTH common stock",
+    "acquired": "2024-06-01",
+    "date": "2025-12-20",
+    "shares": "100",
+    "basis": "2000",
+    "proceeds": "1505",
+    "fees": "5",
+    "account_type": "taxable",
+    "entire_single_unadjusted_lot": true,
+    "arm_length": true,
+    "source_ids": ["synthetic"]
+  },
+  "replacements": [
+    {
+      "lot_id": "taxable-buy",
+      "security": "SYNTH common stock",
+      "acquired": "2025-12-22",
+      "acquisition_order": 1,
+      "shares": "40",
+      "purchase_basis": "620",
+      "account_type": "taxable",
+      "substantially_identical": true,
+      "purchase_only": true,
+      "unadjusted_basis": true,
+      "never_disposed": true,
+      "not_previously_matched": true,
+      "source_ids": ["synthetic"]
+    },
+    {
+      "lot_id": "ira-buy",
+      "security": "SYNTH common stock",
+      "acquired": "2026-01-19",
+      "acquisition_order": 1,
+      "shares": "20",
+      "purchase_basis": "310",
+      "account_type": "ira",
+      "substantially_identical": true,
+      "purchase_only": true,
+      "unadjusted_basis": true,
+      "never_disposed": true,
+      "not_previously_matched": true,
+      "source_ids": ["synthetic"]
+    }
+  ]
+}

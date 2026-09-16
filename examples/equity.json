@@ -1,0 +1,19 @@
+{
+  "schema_version": "1",
+  "tax_year": 2025,
+  "kind": "equity",
+  "sources": [
+    {"id": "award", "document": "synthetic-award-and-payroll", "locator": "100 gross RSU shares settled for $50 each; $5000 already in wages; unrestricted, no adjustments"},
+    {"id": "broker", "document": "synthetic-sale-confirmations", "locator": "Complete history: 30 sell-to-cover shares, then 40 shares sold; 30 remain"}
+  ],
+  "lots": [{
+    "lot_id": "rsu-2025", "award_type": "RSU", "acquired": "2025-01-15",
+    "shares": "100", "cost_per_share": "0", "compensation_per_share": "50",
+    "wages_included": true, "shares_are_gross": true, "all_disposals_included": true,
+    "unadjusted_basis": true, "unrestricted_at_acquisition": true, "source_ids": ["award", "broker"]
+  }],
+  "sales": [
+    {"sale_id": "cover", "lot_id": "rsu-2025", "shares": "30", "date": "2025-01-15", "proceeds": "1500", "fees": "0", "reported_basis": "0", "arm_length": true, "at_fair_market_value": true, "source_ids": ["broker"]},
+    {"sale_id": "later", "lot_id": "rsu-2025", "shares": "40", "date": "2025-06-15", "proceeds": "2400", "fees": "5", "reported_basis": "0", "arm_length": true, "at_fair_market_value": true, "source_ids": ["broker"]}
+  ]
+}

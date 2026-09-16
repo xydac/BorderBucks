@@ -1,0 +1,42 @@
+{
+  "provenance": {
+    "publication": "IRS Publication 525 (2025)",
+    "url": "https://www.irs.gov/pub/irs-prior/p525--2025.pdf",
+    "locator": "Employee Compensation > Stock Options > Statutory Stock Options > Employee stock purchase plan > Option granted at a discount > Example 10",
+    "example_number": 10,
+    "quote": "Your employer, Willow Corporation, granted you an option under its employee stock purchase plan to buy 100 shares of stock of Willow Corporation for $20 a share at a time when the stock had a value of $22 a share. Eighteen months later, when the value of the stock was $23 a share, you exercised the option, and 14 months after that you sold your stock for $30 a share.",
+    "original_years": null,
+    "original_timing": "18 months from grant to exercise; 14 months from exercise to sale. No calendar years given in the example.",
+    "adapted": true,
+    "adaptation": "Calendar dates assigned to place the sale in 2025, preserving both intervals. All share counts, prices, wages and capital gain retain original IRS amounts. Zero fees, reported basis of purchase cost, unrestricted unadjusted shares, complete disposal history and arm's-length FMV sale are explicit fixture assumptions, not additional IRS example facts."
+  },
+  "document": {
+    "schema_version": "1",
+    "tax_year": 2025,
+    "kind": "equity",
+    "sources": [
+      {"id": "irs", "document": "https://www.irs.gov/pub/irs-prior/p525--2025.pdf", "locator": "Statutory Stock Options, Employee stock purchase plan, Example 10"},
+      {"id": "adaptation", "document": "p525_espp_example10.json", "locator": "provenance.adaptation"}
+    ],
+    "lots": [{
+      "lot_id": "willow", "award_type": "ESPP", "grant": "2023-01-15", "acquired": "2024-07-15",
+      "shares": "100", "cost_per_share": "20", "exercise_fmv_per_share": "23",
+      "grant_fmv_per_share": "22", "grant_option_price_per_share": "20",
+      "statutory_plan_confirmed": true, "shares_are_gross": true, "all_disposals_included": true,
+      "unadjusted_basis": true, "unrestricted_at_acquisition": true, "source_ids": ["irs", "adaptation"]
+    }],
+    "sales": [{
+      "sale_id": "sale", "lot_id": "willow", "shares": "100", "date": "2025-09-15",
+      "proceeds": "3000", "fees": "0", "reported_basis": "2000",
+      "arm_length": true, "at_fair_market_value": true, "source_ids": ["irs", "adaptation"]
+    }]
+  },
+  "official_expected_facts": {
+    "sale.sale.disposition_compensation": "200",
+    "sale.sale.capital_gain_before_wash": "800"
+  },
+  "derived_expected_facts": {
+    "sale.sale.actual_basis": "2200", "sale.sale.reported_basis_correction": "-200",
+    "sale.sale.qualified": "1", "sale.sale.long_term": "1", "lot.willow.remaining_shares": "0"
+  }
+}

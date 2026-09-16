@@ -1,0 +1,38 @@
+{
+  "provenance": {
+    "publication": "IRS Publication 525 (2025)",
+    "url": "https://www.irs.gov/pub/irs-prior/p525--2025.pdf",
+    "locator": "Employee Compensation > Stock Options > Statutory Stock Options > ISOs > Holding period requirement not satisfied > Example 8",
+    "example_number": 8,
+    "quote": "Your employer, Oak Corporation, granted you an ISO on March 12, 2023, to buy 100 shares of Oak Corporation stock at $10 a share, its FMV at the time. You exercised the option on January 7, 2024, when the stock was selling on the open market for $12 a share. On January 27, 2025, you sold the stock for $15 a share.",
+    "original_years": [2023, 2024, 2025],
+    "adapted": false,
+    "adaptation": "Dates and numeric example amounts unchanged. Zero fees, reported basis of purchase cost, unrestricted unadjusted shares, complete disposal history, sale-limitation eligibility and prior AMT adjustment of $2/share are explicit fixture assumptions. AMT basis is derived, not an Example 8 numeric result."
+  },
+  "document": {
+    "schema_version": "1", "tax_year": 2025, "kind": "equity",
+    "sources": [
+      {"id": "irs", "document": "https://www.irs.gov/pub/irs-prior/p525--2025.pdf", "locator": "Statutory Stock Options, ISOs, Example 8"},
+      {"id": "assumptions", "document": "p525_iso_example8.json", "locator": "provenance.adaptation"}
+    ],
+    "lots": [{
+      "lot_id": "oak", "award_type": "ISO", "grant": "2023-03-12", "acquired": "2024-01-07",
+      "shares": "100", "cost_per_share": "10", "exercise_fmv_per_share": "12",
+      "prior_amt_adjustment_per_share": "2", "statutory_plan_confirmed": true,
+      "shares_are_gross": true, "all_disposals_included": true, "unadjusted_basis": true,
+      "unrestricted_at_acquisition": true, "source_ids": ["irs", "assumptions"]
+    }],
+    "sales": [{
+      "sale_id": "sale", "lot_id": "oak", "shares": "100", "date": "2025-01-27",
+      "proceeds": "1500", "fees": "0", "reported_basis": "1000", "arm_length": true,
+      "at_fair_market_value": true, "iso_sale_limitation_eligible": true, "source_ids": ["irs", "assumptions"]
+    }]
+  },
+  "official_expected_facts": {
+    "sale.sale.disposition_compensation": "200", "sale.sale.capital_gain_before_wash": "300"
+  },
+  "derived_expected_facts": {
+    "sale.sale.actual_basis": "1200", "sale.sale.reported_basis_correction": "-200",
+    "sale.sale.amt_basis": "1200", "sale.sale.qualified": "0", "sale.sale.long_term": "1"
+  }
+}

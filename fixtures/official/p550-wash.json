@@ -1,0 +1,75 @@
+{
+  "provenance": {
+    "url": "https://www.irs.gov/pub/irs-prior/p550--2025.pdf",
+    "verified_text_url": "https://www.irs.gov/publications/p550",
+    "publication": "Publication 550 (2025), Investment Income and Expenses",
+    "locator": "Chapter 4, Wash Sales, Example 1 (before Options and futures contracts)",
+    "example_number": 1,
+    "quote": "You buy 100 shares of X stock for $1,000. You sell these shares for $750 and within 30 days from the sale you buy 100 shares of the same stock for $800. Because you bought substantially identical stock, you cannot deduct your loss of $250 on the sale. However, you add the disallowed loss of $250 to the cost of the new stock, $800, to obtain your basis in the new stock, which is $1,050.",
+    "adapted": true,
+    "original_years": null,
+    "adaptation": "Official shares and dollar amounts are unchanged. The example has no exact dates. Dates, zero sale fees, taxable account, IDs, acquisition order, and isolation/review assertions are synthetic schema scaffolding, not IRS-stated facts. Holding-period days are not official expected results. Verified against the IRS HTML explicitly titled Publication 550 (2025); PDF URL pins the edition."
+  },
+  "document": {
+    "schema_version": "1",
+    "tax_year": 2025,
+    "kind": "wash",
+    "sources": [
+      {"id": "p550", "document": "https://www.irs.gov/pub/irs-prior/p550--2025.pdf", "locator": "Chapter 4, Wash Sales, Example 1: shares and amounts only"},
+      {"id": "scaffolding", "document": "Synthetic adaptation of undated official example", "locator": "Dates, account type, zero fees, and all scope assertions"}
+    ],
+    "scope": {
+      "reviewed_from": "2025-05-16",
+      "reviewed_through": "2025-07-15",
+      "complete_window": true,
+      "no_competing_loss_sales": true,
+      "no_related_party_or_derivative_transactions": true,
+      "not_a_dealer": true,
+      "source_ids": ["scaffolding"]
+    },
+    "sale": {
+      "lot_id": "sold-x",
+      "security": "X stock",
+      "acquired": "2024-01-01",
+      "date": "2025-06-15",
+      "shares": "100",
+      "basis": "1000",
+      "proceeds": "750",
+      "fees": "0",
+      "account_type": "taxable",
+      "entire_single_unadjusted_lot": true,
+      "arm_length": true,
+      "source_ids": ["p550", "scaffolding"]
+    },
+    "replacements": [
+      {
+        "lot_id": "new-x",
+        "security": "X stock",
+        "acquired": "2025-06-25",
+        "acquisition_order": 1,
+        "shares": "100",
+        "purchase_basis": "800",
+        "account_type": "taxable",
+        "substantially_identical": true,
+        "purchase_only": true,
+        "unadjusted_basis": true,
+        "never_disposed": true,
+        "not_previously_matched": true,
+        "source_ids": ["p550", "scaffolding"]
+      }
+    ]
+  },
+  "official_expected_facts": {
+    "wash.total_loss": "250",
+    "wash.disallowed_loss": "250",
+    "replacement.new-x.adjusted_basis": "1050"
+  },
+  "derived_expected_facts": {
+    "wash.matched_shares": "100",
+    "wash.allowed_loss": "0",
+    "wash.recognized_gain": "0",
+    "wash.permanent_loss": "0",
+    "wash.deferred_loss": "250",
+    "replacement.new-x.basis_increase": "250"
+  }
+}

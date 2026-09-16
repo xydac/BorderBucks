@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "tax_year": 2025,
+  "kind": "foreign",
+  "sources": [
+    {"id": "inventory", "document": "Synthetic complete inventory and eligibility assertions, not an IRS example", "locator": "2025 worksheet; same valuation for both regimes, no spouse-joint MFS ownership or other regime-specific valuations"},
+    {"id": "bank", "document": "Synthetic Indian bank statement", "locator": "annual maximum and December 31 balance"},
+    {"id": "broker", "document": "Synthetic foreign brokerage statement including PFIC holding", "locator": "annual maximum and December 31 balance"},
+    {"id": "fx", "document": "Synthetic FX assumptions, not an official exchange rate", "locator": "2025-12-31 local units per USD"}
+  ],
+  "source_ids": ["inventory"],
+  "filing_status": "single",
+  "residence": "us",
+  "qualifying_abroad_confirmed": false,
+  "inventory_complete": true,
+  "no_double_counting_confirmed": true,
+  "same_valuation_for_both_regimes_confirmed": true,
+  "fx_rates": [
+    {"currency": "INR", "date": "2025-12-31", "local_per_usd": "80", "source_ids": ["fx"]},
+    {"currency": "USD", "date": "2025-12-31", "local_per_usd": "1", "source_ids": ["fx"]}
+  ],
+  "assets": [
+    {
+      "id": "india-bank",
+      "description": "Synthetic Indian bank account",
+      "asset_type": "account",
+      "currency": "INR",
+      "maximum_local": "800000",
+      "yearend_local": "400000",
+      "include_fbar": true,
+      "include_form8938": true,
+      "source_ids": ["bank"]
+    },
+    {
+      "id": "foreign-brokerage",
+      "description": "Synthetic foreign brokerage account, includes underlying fund",
+      "asset_type": "account",
+      "currency": "USD",
+      "maximum_local": "70000",
+      "yearend_local": "40000",
+      "include_fbar": true,
+      "include_form8938": true,
+      "source_ids": ["broker"]
+    },
+    {
+      "id": "underlying-pfic",
+      "description": "Synthetic PFIC already valued inside foreign-brokerage",
+      "asset_type": "asset",
+      "currency": "USD",
+      "maximum_local": "20000",
+      "yearend_local": "15000",
+      "include_fbar": false,
+      "include_form8938": false,
+      "included_in_account_id": "foreign-brokerage",
+      "source_ids": ["broker"]
+    }
+  ]
+}

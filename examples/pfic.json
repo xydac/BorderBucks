@@ -1,0 +1,31 @@
+{
+  "schema_version": "1",
+  "tax_year": 2025,
+  "kind": "pfic",
+  "method": "mtm",
+  "sources": [
+    {"id": "position", "document": "Synthetic marketable PFIC position, not an IRS example", "locator": "2025 yearend USD valuation and adjusted-basis ledger"},
+    {"id": "election", "document": "Synthetic valid section 1296 election and eligibility confirmations", "locator": "prior-year election, no section 1291 taint, direct yearend holding, no dispositions or distributions"},
+    {"id": "history", "document": "Synthetic prior section 1296 inclusion and deduction ledger", "locator": "unreversed inclusions through 2024"}
+  ],
+  "holdings": [
+    {
+      "id": "synthetic-fund",
+      "description": "Synthetic qualifying marketable PFIC; no Indian mutual-fund eligibility inference",
+      "adjusted_basis_usd": "10000",
+      "yearend_fmv_usd": "7000",
+      "prior_unreversed_inclusions_usd": "1000",
+      "eligibility": {
+        "directly_held": true,
+        "held_at_yearend": true,
+        "marketable_stock": true,
+        "valid_election": true,
+        "election_start": "prior_year",
+        "no_section1291_taint": true,
+        "no_dispositions": true,
+        "no_distributions": true
+      },
+      "source_ids": ["position", "election", "history"]
+    }
+  ]
+}
